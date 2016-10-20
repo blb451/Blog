@@ -20,15 +20,10 @@ class PostsController < ApplicationController
 
       before_filter :set_page, only: [:index]
         POSTS_PER_PAGE = 10
-        
+
       def index
         @post = Post.order(created_at: :desc).limit(POSTS_PER_PAGE).offset(@page.to_i * POSTS_PER_PAGE)
       end
-        private
-      def set_page
-       @page = params[:page] || 0
-      end
-     end
 
       def edit
         @post = Post.find params[:id]
@@ -54,3 +49,10 @@ class PostsController < ApplicationController
         search_query = params(:query)
         @query = Post.where(['title || body ILIKE ?', "#{search_query}"])
       end
+
+
+      private
+      def set_page
+        @page = params[:page] || 0
+      end
+    end
