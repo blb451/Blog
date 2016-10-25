@@ -5,8 +5,9 @@ class PostsController < ApplicationController
       end
 
       def create
-        post_params = params.require(:post).permit([:title, :body])
+        post_params = params.require(:post).permit([:title, :body, :category_id])
         @post = Post.new post_params
+        @post.user = @current_user
         if @post.save
           redirect_to post_path(@post)
         else
@@ -15,7 +16,9 @@ class PostsController < ApplicationController
       end
 #
       def show
+        @comment = Comment.new
         @post = Post.find params[:id]
+        @category = Category.find @post.category_id
       end
 
       before_filter :set_page, only: [:index]
@@ -31,7 +34,7 @@ class PostsController < ApplicationController
 
       def update
         @post = Post.find params[:id]
-          post_params = params.require(:post).permit([:title, :body])
+          post_params = params.require(:post).permit([:title, :body, :category_id])
         if @post.update post_params
           redirect_to post_path(@post)
         else
@@ -42,7 +45,7 @@ class PostsController < ApplicationController
       def destroy
         @post = Post.find params[:id]
         @post.destroy
-        redirect_to post_path
+        redirect_to posts_path
       end
 
       def search
