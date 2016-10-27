@@ -14,6 +14,10 @@ class User < ApplicationRecord
                     uniqueness: {case_sensitive: false },
                     format: VALID_EMAIL_REGEX
 
+def full_name
+   "#{first_name} #{last_name}".strip.squeeze(' ').titleize
+end
+
 private
 
 def downcase_email
