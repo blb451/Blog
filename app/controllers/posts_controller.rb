@@ -25,6 +25,7 @@ class PostsController < ApplicationController
         @comment = Comment.new
         @post = Post.find params[:id]
         @category = Category.find @post.category_id
+        @favourite = @post.favourite_for(current_user)
       end
 
 

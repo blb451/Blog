@@ -12,6 +12,14 @@ class Ability
       can :read, :all
     end
 
+    cannot :like, Post do |x|
+      x.user == user
+    end
+
+    can :like, Post do |x|
+      x.user != user
+    end
+
     can :delete, Comment do |c|
       c.user == user || c.post.user == user
     end

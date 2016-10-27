@@ -8,5 +8,5 @@ class ApplicationRecord < ActiveRecord::Base
       'Anonymous'
     end
   end
-  
+
 end

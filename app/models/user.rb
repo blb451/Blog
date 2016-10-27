@@ -2,9 +2,11 @@ class User < ApplicationRecord
   attr_accessor :current_password
   has_many :comments, dependent: :nullify
   has_many :posts, dependent: :nullify
-  has_secure_password
+  has_many :favourites, dependent: :destroy
+  has_many :favourite_posts, through: :favouritse, source: :post
 
   has_secure_password
+
   before_validation :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 

@@ -3,33 +3,43 @@
 <p><%= @post.body %></p>
 Posted by: <%= @post.user_full_name %>
 
+<hr />
+<% if can? :manage, @post %>
+  <%= button_to 'Edit Post', edit_post_path(@post)%>
+  <%= button_to 'Delete Post', post_path(@post),
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<% if user_signed_in? && can?(:favourite, @post) %>
+  <% if @favourite.present? %>
+    <%= button_to "Un-favourite", post_favourite_path(@post, @favourite),
+    method: :delete %>
+  <% else %>
+    <%= button_to "Favourite", post_favourites_path(@post), method: :post %>
+  <% end %>
+<% end %>
+
+
+
 <h1>Create Commment</h1>
 <%= form_for [@post, @comment ] do |c| %>
-<div>
-  <%= c.label :body%><br />
-  <%= c.text_area :body %> <br />
-</div>
-  <%= c.submit %>
-  <% end %>
+  <div>
+    <%= c.label :body%><br />
+    <%= c.text_area :body %> <br />
+  </div>
+    <%= c.submit %>
+<% end %>
 
 
 <h1>All Comments</h1>
 <% @post.comments.each do |comment| %>
-Comment from: <%= comment.user_full_name %>
-<%= comment.body %> <br />
-<% if can? :delete, comment %>
-<button><%= link_to 'Delete Comment', post_comment_path(@post, comment),
-method: :delete,
-data: {confirm: 'are you sure?'} %></button>
-<hr />
-<% end %>
-<% end %>
-
-
-<hr />
-<% if can? :manage, @post %>
-<%= link_to 'Edit Post', edit_post_path(@post) %>
-<%= link_to 'Delete Post', post_path(@post),
+  Comment from: <%= comment.user_full_name %>
+  <%= comment.body %> <br />
+  <% if can? :delete, comment %>
+    <button><%= link_to 'Delete Comment', post_comment_path(@post, comment),
     method: :delete,
-    data: { confirm: 'Are you sure?' } %>
+    data: {confirm: 'are you sure?'} %></button>
+    <hr />
+  <% end %>
 <% end %>

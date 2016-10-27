@@ -42,4 +42,7 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'User deleted'
   end
 
+  def index
+  end
+
 end

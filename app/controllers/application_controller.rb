@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 def user_signed_in?
   session[:user_id].present?
 end
-helper_method :user_signed_in
+helper_method :user_signed_in?
 
 def authenticate_user
   redirect_to(new_session_path, alert: 'Please sign up or sign in') unless user_signed_in?
