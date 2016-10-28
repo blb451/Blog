@@ -24,10 +24,6 @@ class PasswordResetsController < ApplicationController
     end
   end
 
-  def index
-    @user = User.find_by params[:email]
-  end
-
   def user_params
     user_params = params.require(:user).permit([
                                               :password,
