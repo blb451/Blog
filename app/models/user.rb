@@ -20,10 +20,26 @@ def full_name
    "#{first_name} #{last_name}".strip.squeeze(' ').titleize
 end
 
+def generate_token(column)
+  begin
+    self[column] = SecureRandom.urlsafe_base64
+  end while User.exists?(column => self[column])
+end
+
+def send_password_reset
+  generate_token(:password_reset_token)
+  self.password_reset_sent_at = Time.zone.now
+  save!
+end
+
+
+
+
 private
 
 def downcase_email
   self.email.downcase! if email.present?
 end
+
 
 end
