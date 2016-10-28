@@ -3,7 +3,6 @@
   <head>
     <title>Code Snippets</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,13 +13,13 @@
     <%= link_to 'New Post', new_post_path %> |
     <%= link_to 'All Posts', posts_path %> |
     <% if session[:user_id].present? %>
-     Hello <%= current_user.first_name %> |
-     <%= link_to 'Update User Info', edit_users_path%> |
-     <%= link_to 'Sign Out', sessions_path, method: :delete %> |
-     <%= link_to 'Favourites', users_path %>
+       Hello <%= current_user.first_name %> |
+       <%= link_to 'Update User Info', edit_users_path%> |
+       <%= link_to 'Sign Out', sessions_path, method: :delete %> |
+       <%= link_to 'Favourites', users_path %>
     <% else %>
-     <%= link_to 'Sign Up', new_user_path %> |
-     <%= link_to 'Sign In', new_session_path %>
+       <%= link_to 'Sign Up', new_user_path %> |
+       <%= link_to 'Sign In', new_session_path %>
      <% end %>
     <hr />
     <%= alert || notice %>
