@@ -12,11 +12,11 @@ class Ability
       can :read, :all
     end
 
-    cannot :like, Post do |x|
+    cannot :favourite, Post do |x|
       x.user == user
     end
 
-    can :like, Post do |x|
+    can :favourite, Post do |x|
       x.user != user
     end
 
