@@ -18,26 +18,20 @@ def star_counter(post)
   links_array = []
 
   1.upto(star_count) do |s|
-
-
     if stars.nil?
-    path =  (link_to fa_icon("star"), post_stars_path(post, star:{star_count: s}), method: method)
+      path =  (link_to fa_icon("star"), post_stars_path(post, star:{star_count: s}), method: method)
     else
-    path =  (link_to fa_icon("star"), post_star_path(post, stars, star:{star_count: s}), method: method)
+      path =  (link_to fa_icon("star"), post_star_path(post, stars, star:{star_count: s}), method: method)
     end
-
-
     links_array << path
   end
 
   empty_star.upto(5) do |s|
-
     if stars.nil?
-    path =  (link_to fa_icon("star-o"), post_stars_path(post, star:{star_count: s}), method: method)
+      path =  (link_to fa_icon("star-o"), post_stars_path(post, star:{star_count: s}), method: method)
     else
-    path =  (link_to fa_icon("star-o"), post_star_path(post, stars, star:{star_count: s}), method: method)
+      path =  (link_to fa_icon("star-o"), post_star_path(post, stars, star:{star_count: s}), method: method)
     end
-
     links_array << path
   end
 
@@ -53,5 +47,4 @@ def star_counter(post)
     end
     return (star_array.reduce(:+)) / (star_array.size.to_f)
   end
-
 end
