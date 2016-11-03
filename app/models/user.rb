@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :nullify
   has_many :posts, dependent: :nullify
   has_many :favourites, dependent: :destroy
-  has_many :favourite_posts, through: :favouritse, source: :post
+  has_many :favourite_posts, through: :favourites, source: :post
+  has_many :stars, dependent: :destroy
+  has_many :starred_posts, through: :stars, source: :post
 
   has_secure_password
 

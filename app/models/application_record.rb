@@ -9,4 +9,8 @@ class ApplicationRecord < ActiveRecord::Base
     end
   end
 
+  def error_message
+    error.full_messages.join(", ")
+  end
+
 end

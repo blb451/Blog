@@ -4,6 +4,10 @@ class Post < ApplicationRecord
   has_many :comments, lambda { order(created_at: :DESC) }, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :users_who_favored, through: :favourites, source: :user
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+  has_many :stars, dependent: :destroy
+  has_many :starers, dependent: :destroy
 
   validates :title, presence: true, length: { minimum: 7 },
             uniqueness: {case_sensitive: false, message: "must be unique"}

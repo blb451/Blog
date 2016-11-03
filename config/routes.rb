@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments
       resources :favourites, only: [:create, :destroy]
+      resources :stars, only: [:create, :update, :destroy]
     end
     resources :users do
       get :edit, on: :collection
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
       delete :destroy, on: :collection
     end
     resources :password_resets
+    resources :tags, only: [:index, :show]
 end

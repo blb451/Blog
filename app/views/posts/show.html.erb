@@ -1,7 +1,12 @@
 <h1><%= @post.title %></h1>
 <p>Category: <%= @category.title %></p>
 <p><%= @post.body %></p>
-Posted by: <%= @post.user_full_name %>
+Posted by: <%= @post.user_full_name %><br />
+Post Tags: <%= @post.tags.map(&:name).join(', ') %>
+
+<section class='star widget'>
+  <%= star_counter(@post) %> (Average: <%= star_average(@post) %>)
+</section>
 
 <hr />
 <% if can? :manage, @post %>

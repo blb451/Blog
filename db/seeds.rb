@@ -6,7 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 10.times do
+  Tag.create ({ name: Faker::GameOfThrones.house})
+end
+
+  tags = Tag.all
+
+10.times do
   Category.create({ title: Faker::StarWars.specie})
 end
 
-puts "Generated 10 categories."
+20.times do
+  Post.create ({ title:Faker::Book.title,
+                 body: Faker::Hipster.paragraph,
+                 tags: tags.sample(rand(3)+1),
+                 category_id: rand(10) + 1
+                 })
+               end
+puts "Generated things."
