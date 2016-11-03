@@ -5,7 +5,10 @@ Posted by: <%= @post.user_full_name %><br />
 Post Tags: <%= @post.tags.map(&:name).join(', ') %>
 
 <section class='star widget'>
-  <%= star_counter(@post) %> (Average: <%= star_average(@post) %>)
+  <%= star_counter(@post) %>
+  <% if @post.stars.any? %>
+    (Average: <%= star_average(@post) %>)
+  <% end %>
 </section>
 
 <hr />
@@ -25,26 +28,23 @@ Post Tags: <%= @post.tags.map(&:name).join(', ') %>
   <% end %>
 <% end %>
 
-
+<h1>All Comments</h1>
+<% @post.comments.each do |comment| %>
+Comment from: <%= comment.user_full_name %> <br />
+<%= comment.body %> <br />
+<% if can? :delete, comment %>
+<button><%= link_to 'Delete Comment', post_comment_path(@post, comment),
+method: :delete,
+data: {confirm: 'are you sure?'} %></button>
+<hr />
+<% end %>
+<% end %>
 
 <h1>Create Commment</h1>
 <%= form_for [@post, @comment ] do |c| %>
-  <div>
-    <%= c.label :body%><br />
-    <%= c.text_area :body %> <br />
-  </div>
-    <%= c.submit %>
-<% end %>
-
-
-<h1>All Comments</h1>
-<% @post.comments.each do |comment| %>
-  Comment from: <%= comment.user_full_name %>
-  <%= comment.body %> <br />
-  <% if can? :delete, comment %>
-    <button><%= link_to 'Delete Comment', post_comment_path(@post, comment),
-    method: :delete,
-    data: {confirm: 'are you sure?'} %></button>
-    <hr />
-  <% end %>
+<div>
+  <%= c.label :body%><br />
+  <%= c.text_area :body %> <br />
+</div>
+<%= c.submit %>
 <% end %>
