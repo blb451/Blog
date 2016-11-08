@@ -8,10 +8,14 @@ class CommentsController < ApplicationController
     @post = Post.find params[:post_id]
     @comment.user = current_user
     @comment.post = @post
-    if @comment.save
-      redirect_to post_path(@post), notice: 'Comment created'
-    else
-      render 'posts/show'
+    respond_to do |format|
+      if @comment.save
+        format.js { render :create_comment_success}
+        format.html { redirect_to post_path(@post), notice: 'Comment created' }
+      else
+        format.js { render :create_comment_failure }
+        format.html { redirect_to post_path(@post)}
+      end
     end
   end
 
@@ -19,12 +23,16 @@ class CommentsController < ApplicationController
   def destroy
     post = Post.find params[:post_id]
     @comment = Comment.find params[:id]
-    if can? :delete, @comment
-      @comment.destroy
-      redirect_to post_path(post), notice: 'Comment deleted'
-    else
-      redirect_to home_path, notice: 'Access denied'
+    respond_to do |format|
+      if can? :delete, @comment
+        @comment.destroy
+        format.js {render}
+        format.html { redirect_to post, notice: 'Comment deleted!'}
+      else
+        format.js {render js: 'alert:("Access denied");' }
+        format.html { redirect_to post_path, alert: 'Access Denied' }
+      end
     end
   end
-  
+
 end

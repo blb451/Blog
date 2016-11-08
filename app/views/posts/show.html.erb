@@ -1,5 +1,5 @@
 <h1><%= @post.title %></h1>
-<p>Category: <%= @category.title %></p>
+<p>Category: <%= @post.category.title %></p>
 <p><%= @post.body %></p>
 Posted by: <%= @post.user_full_name %><br />
 Post Tags: <%= @post.tags.map(&:name).join(', ') %>
@@ -19,32 +19,15 @@ Post Tags: <%= @post.tags.map(&:name).join(', ') %>
   data: { confirm: 'Are you sure?' } %>
 <% end %>
 
-<% if user_signed_in? && can?(:favourite, @post) %>
-  <% if @favourite.present? %>
-    <%= button_to "Un-favourite", post_favourite_path(@post, @favourite),
-    method: :delete %>
-  <% else %>
-    <%= button_to "Favourite", post_favourites_path(@post), method: :post %>
-  <% end %>
-<% end %>
+<div id= 'favbutton'>
+  <%= render '/favourites/button' %>
+</div>
 
 <h1>All Comments</h1>
+<div id = 'comments'>
 <% @post.comments.each do |comment| %>
-Comment from: <%= comment.user_full_name %> <br />
-<%= comment.body %> <br />
-<% if can? :delete, comment %>
-<button><%= link_to 'Delete Comment', post_comment_path(@post, comment),
-method: :delete,
-data: {confirm: 'are you sure?'} %></button>
-<hr />
+  <%= render '/comments/comment', { comment: comment } %>
 <% end %>
-<% end %>
-
-<h1>Create Commment</h1>
-<%= form_for [@post, @comment ] do |c| %>
-<div>
-  <%= c.label :body%><br />
-  <%= c.text_area :body %> <br />
 </div>
-<%= c.submit %>
-<% end %>
+
+<%= render '/comments/form' %>
