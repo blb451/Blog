@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+
+  attr_accessor :facebook_post_this
   belongs_to :category
   belongs_to :user
   has_many :comments, lambda { order(created_at: :DESC) }, dependent: :destroy
@@ -22,6 +24,5 @@ class Post < ApplicationRecord
   def favourite_for(user)
     favourites.find_by(user: user)
   end
-
 
 end

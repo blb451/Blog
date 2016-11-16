@@ -11,10 +11,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    post_params = params.require(:post).permit([:title, :body, :category_id, tag_ids: []])
+    post_params = params.require(:post).permit([:title, :body, :facebook_post_this, :category_id, tag_ids: []])
     @post = Post.new post_params
     @post.user = current_user
     if @post.save
+      if @post.facebook_post_this
+        user_graph = Koala::Facebook::API.new(current_user.oauth_token)
+        user_graph.put_wall_post("#{@post.title}: #{@post.body}")
+      end
       redirect_to post_path(@post)
     else
       render :new
@@ -23,22 +27,34 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @post = Post.find params[:id]
+    @post = find_post
     @category = Category.find @post.category_id
     @favourite = @post.favourite_for(current_user)
+    respond_to do |format|
+      format.html {render}
+      format.text {render}
+      format.xml {render xml: @post.to_xml}
+      format.json {render json: @post.to_json(include: [:category, :comments, :user])}
+    end
   end
 
 
   def index
-    @post = Post.order(created_at: :desc).limit(POSTS_PER_PAGE).offset(@page.to_i * POSTS_PER_PAGE)
+    @post = Post.order(created_at: :desc).includes(:category, :user).page(params[:page]).per(10)
+    respond_to do |format|
+      format.html {render}
+      format.text {render}
+      format.xml {render xml: @post.to_xml}
+      format.json {render json: @post.to_json(include: [:category, :user])}
+    end
   end
 
   def edit
-    @post = Post.find params[:id]
+    @post = find_post
   end
 
   def update
-    @post = Post.find params[:id]
+    @post = find_post
     post_params = params.require(:post).permit([:title, :body, :category_id, tag_ids: []])
     if @post.update post_params
       redirect_to post_path(@post)
@@ -48,7 +64,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find params[:id]
+    @post = find_post
     @post.destroy
     redirect_to posts_path
   end
@@ -65,13 +81,17 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find params[:id]
+    @post = find_post
   end
 
   def authorize_access
     unless can? :manage, @post
       redirect_to root_path, alert: 'Access denied'
     end
+  end
+
+  def find_post
+    Post.find params[:id]
   end
 
 end

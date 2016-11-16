@@ -23,6 +23,13 @@
     <%= f.collection_select(:tag_ids, Tag.all, :id, :name, {}, { multiple: true, class: 'chosen-select'})%>
   </div>
 
+  <% if !@post.persisted? && current_user.signed_in_with_facebook? %>
+    <div>
+      <%= f.check_box :facebook_post_this %>
+      <%= f.label :facebook_post_this %>
+    </div>
+  <% end %>
+
   <%= f.submit %>
 
 <%end%>

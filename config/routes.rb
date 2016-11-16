@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
+  get 'auth/google_oauth2', as: :sign_in_with_google
+  get 'auth/google_oauth2/callback' => 'callbacks#google'
+  get 'auth/facebook', as: :sign_in_with_facebook
+  get 'auth/facebook/callback' => 'callbacks#facebook'
 
     root 'home#index'
     get '/about' => 'home#about', as: :about

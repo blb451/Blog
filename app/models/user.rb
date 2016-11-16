@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  
   attr_accessor :current_password
   has_many :comments, dependent: :nullify
   has_many :posts, dependent: :nullify
@@ -16,7 +17,25 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true,
                     uniqueness: {case_sensitive: false },
-                    format: VALID_EMAIL_REGEX
+                    format: VALID_EMAIL_REGEX,
+                    unless: :from_oauth?
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      full_name = (auth.info.name).split
+      user.first_name = full_name[0]
+      user.last_name = full_name[1]
+      user.email = auth.info.email
+      user.password = SecureRandom.hex(32)
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.oauth_token = auth.credentials.token
+      user.oauth_secret = auth.credentials.secret
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.oauth_raw_data = auth
+      user.save!
+    end
+  end
 
   def full_name
    "#{first_name} #{last_name}".strip.squeeze(' ').titleize
@@ -32,6 +51,14 @@ class User < ApplicationRecord
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
     save!
+  end
+
+  def from_oauth?
+    provider.present? && uid.present?
+  end
+
+  def signed_in_with_facebook?
+    uid.present? && provider == 'facebook'
   end
 
   private

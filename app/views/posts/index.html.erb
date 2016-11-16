@@ -1,16 +1,9 @@
 <h1>All Posts</h1>
+
 <button><%= link_to 'Sort by Tags', tags_path %></button><br /><br />
 <% @post.each do |p| %>
 <%= link_to p.title, post_path(p) %>
 <hr />
 <% end %>
 
-<div id = "nav">
-  <%if @page.to_i > 0 %>
-    <button><%= link_to 'Newest', posts_path %></button>
-    <button><%= link_to 'Previous 10 Posts', posts_path(page: @page.to_i - 1) %></button>
-  <%end%>
-  <% if @post.length != 0 %>
-    <button><%= link_to "Next 10 Posts", posts_path(page: @page.to_i + 1) %></button>
-  <%end%>
-</div>
+<%= paginate @post %>

@@ -5,8 +5,9 @@ class PasswordResetsController < ApplicationController
     user.send_password_reset
     redirect_to edit_password_reset_path(id: user.password_reset_token),
     notice: 'Check your email for password reset instructions'
-
-    #send an email
+    # Send an email here with a link to
+    # edit_password_reset_path(id: user.password_reset_token)
+    # Remove redirect
   end
 
   def edit
@@ -25,8 +26,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def user_params
-    user_params = params.require(:user).permit([
-                                              :password,
-                                              :password_confirmation])
+    user_params = params.require(:user).permit([:password,
+                                                :password_confirmation])
   end
 end

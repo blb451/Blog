@@ -23,7 +23,9 @@
          <%= link_to 'New Post', new_post_path %>
       <% else %>
          <%= link_to 'Sign Up', new_user_path %> |
-         <%= link_to 'Sign In', new_session_path %>
+         <%= link_to 'Sign In', new_session_path %> |
+         <%= link_to "Sign in with Google", sign_in_with_google_path, id: "sign_in" %> |
+         <%= link_to "Sign in with Facebook", sign_in_with_facebook_path, id: "sign_in" %>
        <% end %>
      </div>
 

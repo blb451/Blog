@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101235344) do
+ActiveRecord::Schema.define(version: 20161115212114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,13 @@ ActiveRecord::Schema.define(version: 20161101235344) do
     t.boolean  "admin",                  default: false
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
+    t.text     "oauth_raw_data"
+    t.datetime "oauth_expires_at"
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", using: :btree
   end
 
   add_foreign_key "comments", "posts"
