@@ -1,7 +1,5 @@
 class CallbacksController < ApplicationController
 
-  private
-  
   def google
     google_data = request.env['omniauth.auth']
     user = User.from_omniauth(google_data)

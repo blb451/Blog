@@ -12,8 +12,8 @@ Post Tags: <%= @post.tags.map(&:name).join(', ') %>
 </section>
 
 <hr />
-<% if can? :manage, @post %>
-  <%= button_to 'Edit Post', edit_post_path(@post)%>
+<% if can? :modify, @post %>
+  <%= button_to 'Edit Post', edit_post_path(@post), method: :get %>
   <%= button_to 'Delete Post', post_path(@post),
   method: :delete,
   data: { confirm: 'Are you sure?' } %>

@@ -5,9 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit(:first_name, :last_name, :email,
-                                              :password, :password_confirmation)
-    @user = User.new user_params
+    @user = User.new find_params
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path, notice: 'Thanks for signing up.'
@@ -22,9 +20,8 @@ class UsersController < ApplicationController
 
   def update
    @user = current_user
-   user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
    if @user && @user.authenticate(user_params[:current_password])
-     if @user.update user_params
+     if @user.update find_params
        redirect_to home_path, notice: "Successfully updated"
      else
        render :edit
@@ -43,6 +40,12 @@ class UsersController < ApplicationController
   end
 
   def index
+  end
+
+  private
+
+  def find_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
   end
 
 end

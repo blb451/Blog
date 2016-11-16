@@ -11,8 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post_params = params.require(:post).permit([:title, :body, :facebook_post_this, :category_id, tag_ids: []])
-    @post = Post.new post_params
+    @post = Post.new find_params
     @post.user = current_user
     if @post.save
       if @post.facebook_post_this
@@ -55,8 +54,7 @@ class PostsController < ApplicationController
 
   def update
     @post = find_post
-    post_params = params.require(:post).permit([:title, :body, :category_id, tag_ids: []])
-    if @post.update post_params
+    if @post.update find_params
       redirect_to post_path(@post)
     else
       render :edit
@@ -76,20 +74,22 @@ class PostsController < ApplicationController
     @query = Post.where(['title || body ILIKE ?', "#{search_query}"])
   end
 
-  private
-
   def set_page
     @page = params[:page] || 0
   end
 
   def authorize_access
-    unless can? :manage, @post
+    unless can? :modify, @post
       redirect_to root_path, alert: 'Access denied'
     end
   end
 
   def find_post
-    Post.find params[:id]
+    @post ||= Post.find params[:id]
+  end
+
+  def find_params
+    params.require(:post).permit([:title, :body, :facebook_post_this, :category_id, tag_ids: []])
   end
 
 end

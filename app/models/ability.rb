@@ -5,10 +5,16 @@ class Ability
 
     user ||= User.new
 
+    alias_action :edit, :update, :destroy, :to => :modify
+
     if user.admin?
       can :manage, :all
     else
       can :read, :all
+    end
+
+    can :modify, Post do |x|
+      x.user == user
     end
 
     cannot :favourite, Post do |x|
@@ -21,10 +27,6 @@ class Ability
 
     can :delete, Comment do |c|
       c.user == user || c.post.user == user
-    end
-
-    can :manage, Post do |x|
-      x.user == user
     end
 
   end
