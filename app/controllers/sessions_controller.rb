@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       session[:login_attempt] = 0
       redirect_to root_path, notice: 'Signed in'
-    elsif session[:login_attempt] >= 10
+    elsif session[:login_attempt] >= 5
       redirect_to new_password_reset_path, alert: 'Too many failed attempts'
     else
       redirect_to new_session_path, alert: 'Wrong email or password'

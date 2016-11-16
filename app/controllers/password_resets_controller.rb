@@ -3,11 +3,9 @@ class PasswordResetsController < ApplicationController
   def create
     user = User.find_by_email params[:email]
     user.send_password_reset
-    redirect_to edit_password_reset_path(id: user.password_reset_token),
+    UserMailer.password_reset(user).deliver_now
+    redirect_to root_path,
     notice: 'Check your email for password reset instructions'
-    # Send an email here with a link to
-    # edit_password_reset_path(id: user.password_reset_token)
-    # Remove redirect
   end
 
   def edit

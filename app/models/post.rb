@@ -18,11 +18,21 @@ class Post < ApplicationRecord
   def body_snippet
     if self.body.length > 100
       return body[0...100] << "..."
+    else
+      return body
     end
   end
 
   def favourite_for(user)
     favourites.find_by(user: user)
+  end
+
+  def self.search(search)
+    if search
+      self.where('title ILIKE ? OR body ILIKE ?', "%#{search}%", "%#{search}%")
+    else
+      self.all
+    end
   end
 
 end

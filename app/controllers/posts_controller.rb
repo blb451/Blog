@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :destroy, :show]
   before_action :authorize_access, only: [:edit, :update, :destroy]
   before_action :set_page, only: [:index]
-  POSTS_PER_PAGE = 10
 
   def new
     @post = Post.new
@@ -39,12 +38,13 @@ class PostsController < ApplicationController
 
 
   def index
-    @post = Post.order(created_at: :desc).includes(:category, :user).page(params[:page]).per(10)
+    @post = Post.search(params[:search]).order(created_at: :desc).
+            includes(:category, :user).page(params[:page]).per(10)
     respond_to do |format|
-      format.html {render}
-      format.text {render}
-      format.xml {render xml: @post.to_xml}
-      format.json {render json: @post.to_json(include: [:category, :user])}
+        format.html {render}
+        format.text {render}
+        format.xml {render xml: @post.to_xml}
+        format.json {render json: @post.to_json(include: [:category, :user])}
     end
   end
 
@@ -90,6 +90,10 @@ class PostsController < ApplicationController
 
   def find_params
     params.require(:post).permit([:title, :body, :facebook_post_this, :category_id, tag_ids: []])
+  end
+
+  def post_order
+    order(created_at: :desc).includes(:category, :user).page(params[:page]).per(10)
   end
 
 end
