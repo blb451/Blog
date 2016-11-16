@@ -33,6 +33,8 @@ class CommentsController < ApplicationController
     end
   end
 
+  private
+
   def find_post
     Post.find params[:post_id]
   end

@@ -7,7 +7,7 @@ class StarsController < ApplicationController
     star.user = current_user
     star.post = post
     if star.save
-      redirect_to post_path(post) 
+      redirect_to post_path(post)
     else
       redirect_to post_path(post), alert: star.error_message
     end
@@ -27,6 +27,8 @@ class StarsController < ApplicationController
       redirect_to post_path(post), alert: star.error_message
     end
   end
+
+  private
 
   def star_params
     params.require(:star).permit(:star_count)

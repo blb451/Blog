@@ -69,6 +69,8 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  private
+
   def search
     search_query = params(:query)
     @query = Post.where(['title || body ILIKE ?', "#{search_query}"])
@@ -78,10 +80,6 @@ class PostsController < ApplicationController
 
   def set_page
     @page = params[:page] || 0
-  end
-
-  def find_post
-    @post = find_post
   end
 
   def authorize_access
