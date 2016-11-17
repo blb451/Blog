@@ -12,8 +12,11 @@
 <% end %>
 
 <% @post.each do |p| %>
-  <%= link_to p.title, post_path(p) %>
-<hr />
+<div class='index-element'>
+  <%= link_to p.title, post_path(p) %> <br />
+  <%= p.body_snippet %> <br /><br />
+</div>
 <% end %>
+
 
 <%= paginate @post %>
