@@ -1,5 +1,8 @@
 <h1>All Favourite Posts</h1>
 
 <% current_user.favourites.each do |f| %>
-  <%=link_to f.post.title, post_path(f.post) %> <hr />
+  <div class='index-element'>
+    <div class='post-title'> <%=link_to f.post.title, post_path(f.post) %></div>
+    <div class='post-body'><%= f.post.body_snippet %></div>
+  </div>
 <% end %>

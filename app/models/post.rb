@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :stars, dependent: :destroy
-  has_many :starers, dependent: :destroy
+  has_many :starers
 
   validates :title, presence: true, length: { minimum: 7 },
             uniqueness: {case_sensitive: false, message: "must be unique"}
