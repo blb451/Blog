@@ -25,26 +25,27 @@ a {
 
 navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 20px;
   margin-top: 40px;
+  color: teal;
 }
 
 navbar a {
+  padding: 0 5px;
   text-decoration: none;
   color: black;
   transition: 0.3s ease-in-out;
-}
-
-navbar a:first-of-type {
-  padding: 0;
 }
 
 navbar a:hover {
   color: lightblue;
 }
 
-navbar p {
-  display: inline;
-  color: teal;
+#navbar-left {
+  justify-content: flex-start;
+}
+
+#navbar-right {
+  justify-content: flex-end;
 }
