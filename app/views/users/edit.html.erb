@@ -1,6 +1,7 @@
 <h1>Edit User</h1>
 
 <%= @user.errors.full_messages.join(', ') %>
+
 <div class='form-container'>
   <%= form_for @user do |f| %>
 
@@ -28,11 +29,12 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
     </div>
-
-    <%= f.submit %><br />
-    <%= button_to 'Delete User', user_path(@user),
-    method: :delete,
-    data: {confirm: 'are you sure?'} %>
+    <div>
+      <%= f.submit %><br />
+      <%= button_to 'Delete User', user_path(@user),
+      method: :delete,
+      data: {confirm: 'are you sure?'} %>
+    </div>
 
   <%end%>
 </div>

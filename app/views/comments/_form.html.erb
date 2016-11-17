@@ -3,7 +3,6 @@
 <div class='form-container'>
   <%= form_for [@post, @comment ], remote: true do |c| %>
   <div>
-    <%= c.label :body%>
     <%= c.text_area :body %>
   </div>
   <%= c.submit %>
