@@ -20,6 +20,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'koala'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -40,7 +41,6 @@ group :development do
   gem 'interactive_editor'
   gem 'awesome_print'
   gem 'hirb'
-  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
