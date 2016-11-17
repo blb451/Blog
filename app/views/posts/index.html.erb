@@ -4,8 +4,8 @@
   <%= form_tag posts_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search Posts", :name => nil %> -
-      <button><%= link_to 'View by Tags', tags_path %></button>
+      <%= submit_tag "Search Posts", :name => nil %>
+      <%= button_to 'View by Tags', tags_path %>
     </p>
   <% end %>
 
