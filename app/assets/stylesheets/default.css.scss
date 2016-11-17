@@ -1,0 +1,115 @@
+body {
+  margin: 0 auto;
+  font-family: sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  max-width: 960px;
+  color: #444
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.main {
+  border-radius: 5px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #444;
+  padding: 10px;
+  background-color: #f2f2f2;
+  margin-bottom: 30px;
+}
+
+navbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-top: 40px;
+  color: teal;
+}
+
+navbar a {
+  padding: 0 5px;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s ease-in-out;
+}
+
+navbar a:hover {
+  color: lightblue;
+}
+
+#navbar-left {
+  justify-content: flex-start;
+}
+
+#navbar-right {
+  justify-content: flex-end;
+}
+
+#navbar-right i {
+  display: none;
+  margin-right: 10px;
+  margin-top: 6px;
+  opacity: .4;
+}
+
+#navbar-right i:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#burger-box {
+  display: none;
+}
+
+#burger-box[type=checkbox]:checked ~.navbar div{
+  background-color: lightblue;
+}
+
+.index-element {
+  overflow: auto;
+  word-wrap: break-word;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+  border: .5px solid darkgrey;
+  padding: 11px;
+  margin: 3px;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.post-title a {
+  color: rgba(0, 220, 190, .5);
+  font-weight: bold;
+}
+
+.post-title :hover {
+  color: rgba(0, 220, 190, 1);
+  transition: 0.3s ease-in-out;
+}
+
+.post-body {
+  color: white;
+}
+
+h1 {
+  margin-left: 10px;
+}
+
+#index-container {
+}
+
+@media(max-width: 820px){
+  #navbar-right a{
+    display: none;
+  }
+  #navbar-right i {
+    display: inline;
+  }
+}
