@@ -13,6 +13,7 @@ a {
 }
 
 .main {
+  border-radius: 5px;
   font-family: sans-serif;
   max-width: 2000px;
   line-height: 1.6;
@@ -23,6 +24,7 @@ a {
 }
 
 navbar {
+  display: flex;
   font-size: 20px;
   padding: 10px;
 }
@@ -31,7 +33,11 @@ navbar a {
   padding: 10px;
   text-decoration: none;
   color: black;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
+}
+
+navbar a:first-of-type {
+  padding: 0;
 }
 
 navbar a:hover {
