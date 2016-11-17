@@ -80,7 +80,21 @@ navbar a:hover {
   border: .5px solid black;
   padding: 11px;
   margin: 3px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.post-title a {
+  color: rgba(0, 220, 190, .5);
+  font-weight: bold;
+}
+
+.post-title a:hover {
+  color: rgba(0, 220, 190, 1);
+  transition: 0.3s ease-in-out;
+}
+
+.post-body {
+  color: white;
 }
 
 @media(max-width: 820px){

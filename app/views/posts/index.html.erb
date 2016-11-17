@@ -1,20 +1,21 @@
 <h1>All Posts</h1>
 
-<div>
-  <button><%= link_to 'Sort by Tags', tags_path %></button>
-</div>
+
+
+
 
 <%= form_tag posts_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search By Post", :name => nil %>
+    <%= submit_tag "Search Posts", :name => nil %> -
+    <button><%= link_to 'View by Tags', tags_path %></button>
   </p>
 <% end %>
 
 <% @post.each do |p| %>
 <div class='index-element'>
-  <%= link_to p.title, post_path(p) %><br />
-  <%= p.body_snippet %>
+  <div class='post-title'><%= link_to p.title, post_path(p) %></div>
+  <div class='post-body'><%= p.body_snippet %></div>
 </div>
 <% end %>
 
