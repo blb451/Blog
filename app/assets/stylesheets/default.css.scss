@@ -25,12 +25,12 @@ a {
 
 navbar {
   display: flex;
+  justify-content: space-around;
   font-size: 20px;
-  padding: 10px;
+  margin-top: 40px;
 }
 
 navbar a {
-  padding: 10px;
   text-decoration: none;
   color: black;
   transition: 0.3s ease-in-out;
