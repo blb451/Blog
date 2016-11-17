@@ -49,3 +49,29 @@ navbar a:hover {
 #navbar-right {
   justify-content: flex-end;
 }
+
+#navbar-right i {
+  display: none;
+  margin-right: 10px;
+  margin-top: 6px;
+  opacity: .4;
+}
+
+#navbar-right i:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#burger-box {
+  display: none;
+}
+
+@media(max-width: 790px){
+  #navbar-right a{
+    display: none;
+  }
+  #navbar-right i {
+    display: block;
+  }
+}
