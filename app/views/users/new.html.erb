@@ -1,8 +1,11 @@
-<h1>Sign Up</h1>
+
 
 <%= @user.errors.full_messages.join(', ') %>
 
 <div class='form-container'>
+
+  <h1>Sign Up</h1>
+  
   <%= form_for @user do |f| %>
 
     <div>

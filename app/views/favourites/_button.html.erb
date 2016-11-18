@@ -1,11 +1,16 @@
 <% if user_signed_in? && can?(:favourite, @post) %>
   <% if @favourite&.persisted? %>
-    <%= button_to "Un-favourite", post_favourite_path(@post, @favourite),
+    <%= link_to post_favourite_path(@post, @favourite),
     remote: true,
-    method: :delete %>
+    method: :delete do %>
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    <% end %>
+
   <% else %>
-    <%= button_to "Favourite", post_favourites_path(@post),
+    <%= link_to post_favourites_path(@post),
     remote: true,
-    method: :post %>
+    method: :post do %>
+    <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+    <% end %>
   <% end %>
 <% end %>

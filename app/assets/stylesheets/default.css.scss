@@ -74,33 +74,27 @@ navbar a:hover {
   border: .5px solid darkgrey;
   padding: 11px;
   margin: 3px;
-  background-color: rgba(93, 94, 96, .8);
+  background-color: rgba(211, 211, 211, .8);
 }
 
 .post-title a {
-  color: rgba(0, 220, 190, .5);
+  color: rgba(57, 186, 169, .8);
   font-weight: bold;
   transition: 0.3s ease-in-out;
+  font-size: 18px;
 }
 
 .post-title :hover {
-  color: rgba(0, 220, 190, 1);
+  color: rgba(27, 124, 112, 1);
   transition: 0.3s ease-in-out;
 }
 
 .post-body {
   margin-top: 10px;
-  color: white;
 }
 
 h1 {
   margin-left: 10px;
-}
-
-#index-container {
-}
-
-#post_category_id {
 }
 
 form label {
@@ -122,6 +116,7 @@ input[type=submit] {
   width: 92%;
   height: auto;
   transition: 0.3s ease-in-out;
+  border-radius: 5px;
 }
 
 input[type=submit]:hover {background-color: #249283;}
@@ -134,6 +129,7 @@ form input {
   border: 1px solid whitesmoke;
   margin: 5px 0px 5px 0px;
   color: rgba(0, 0, 0, .5);
+  border-radius: 5px;
 }
 
 form textarea {
@@ -141,7 +137,48 @@ form textarea {
   height: 120px;
   font-size: 16px;
   border: 1px solid whitesmoke;
+  border-radius: 5px;
+  overflow: scroll;
 }
+
+#favbutton {
+  display: inline;
+  margin-left: 10px;
+  font-size: 26px;
+}
+
+#favbutton a {
+  color: teal;
+  opacity: .7;
+}
+
+#favbutton a:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+
+}
+
+#index-options {
+  display: inline;
+  margin: 0;
+  font-size: 26px;
+}
+
+#index-options a {
+  color: teal;
+  opacity: .7;
+}
+
+#index-options a:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+
+}
+
+#post-header {
+  display: inline;
+}
+
 
 .chosen-single {
   width: 90%px;
@@ -155,13 +192,17 @@ form textarea {
 
 .form-container {
   margin: auto;
+  margin-top: 30px;
   width: 400px;
   border-radius: 5px;
   border: 1px solid darkgrey;
-  color: white;
-  background-color: rgba(93, 94, 96, .8);
+  background-color: rgba(211, 211, 211, .8);
   text-align: center;
-  padding: 15px;
+  padding: 0px 15px 15px 15px;
+}
+
+.form-container label {
+  margin-left: 18px;
 }
 
 .form-container a {
@@ -201,11 +242,11 @@ form textarea {
 .comment-span {
   border: 1px solid black;
   padding: 5px;
-  background-color: rgba(93, 94, 96, .8);
-  color: white;
+  background-color: rgba(211, 211, 211, .8);
   border-radius: 5px;
   margin-right: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .comment {
@@ -213,11 +254,12 @@ form textarea {
 }
 
 .comment .fa {
-  color: rgba(0, 220, 190, .5);
+  color: teal;
+  opacity: .5;
 }
 
 .comment .fa:hover {
-  color: rgba(0, 220, 190, 1);
+  opacity: 1;
   transition: 0.3s ease-in-out;
 }
 
@@ -229,7 +271,7 @@ form textarea {
 }
 
 .comment-name {
-  color: rgba(0, 220, 190, 1);
+  color: teal;
 }
 
 nav {
@@ -269,7 +311,6 @@ nav a:hover {
 .google-login input[type=submit]{
   background-color: #DF4A32;
   border-color: #bc3f2b;
-  height: 40px;
   transition: 0.3s ease-in-out;
 }
 
@@ -280,7 +321,6 @@ nav a:hover {
 .facebook-login input[type=submit]{
   background-color: #3B5998;
   border-color: #2d4472;
-  height: 40px;
   transition: 0.3s ease-in-out;
 }
 
@@ -291,15 +331,19 @@ nav a:hover {
 .index-container {
   width: 100%;
   height: 100%;
-  background-color: darkgrey;
+  background-color: F2F2F2;
   text-align: center;
   margin-top: 30px;
 }
 
 .about-container {
   background-color: F2F2F2;
-  text-align: center;
+  justify-content: left;
   margin: 60px;
+}
+
+.about-container img {
+  margin-right: 46px;
 }
 
 .index-container img {
@@ -309,7 +353,31 @@ nav a:hover {
 #index-search {
   display: flex;
   flex-direction: row;
-  margin-bottom: 0px;
+  justify-content: center;
+  width: 98%;
+  margin-bottom: 20px;
+  background-color: lightgrey;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.alert-notice {
+  border-radius: 5px;
+  border: 1px solid darkgrey;
+  padding: 5px;
+  background-color: rgba(211, 211, 211, .7);
+  width: 99%;
+  text-align: center;
+  color: teal;
+}
+
+#comments {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#commentstext {
+  margin-left: 10px;
 }
 
 @media(max-width: 820px){

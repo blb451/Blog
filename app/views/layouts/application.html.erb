@@ -31,13 +31,8 @@
     </navbar>
 
     <div class='main'>
-      <% if alert %>
-        <span class='comment-span'><%= alert %></span>
-      <% end %>
-      <% if notice %>
-        <span class='comment-span'><span class='comment-name'>
-          <%= notice %>
-        </span></span>
+      <% if alert || notice %>
+        <div class='alert-notice'> <%= alert || notice %></div>
       <% end %>
       <%= yield %>
     </div>

@@ -1,9 +1,12 @@
-<h1>Edit User</h1>
 
 <%= @user.errors.full_messages.join(', ') %>
 
 <div class='form-container'>
+
+
   <%= form_for @user do |f| %>
+  
+  <h1>Edit User</h1>
 
     <div>
       <%= f.label :first_name %>

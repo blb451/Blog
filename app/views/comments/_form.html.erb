@@ -1,10 +1,6 @@
-<h1>Create Commment</h1>
-
-<div class='form-container'>
-  <%= form_for [@post, @comment ], remote: true do |c| %>
-  <div>
+<%= form_for [@post, @comment ], remote: true do |c| %>
+  <div id='commentstext'>
     <%= c.text_area :body %>
   </div>
   <%= c.submit %>
-  <% end %>
-</div>
+<% end %>
