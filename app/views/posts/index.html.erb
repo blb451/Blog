@@ -2,8 +2,8 @@
   <div id='index-search'>
     <%= form_tag posts_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag 'Search', :name => nil %>
-        <i class="fa fa-search" aria-hidden="true"></i>
+        <!-- <%= submit_tag 'Search', :name => nil %> -->
+        <i class="fa fa-search" aria-hidden="true" id='form-submit-link'></i>
     <% end %>
     <%= button_to 'View by Tags', tags_path, :method => 'get' %>
 </div>
