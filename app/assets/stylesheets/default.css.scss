@@ -19,7 +19,6 @@ a {
   font-size: 16px;
   color: #444;
   padding: 10px;
-  background-color: #f2f2f2;
   margin-bottom: 30px;
   padding-bottom: 70px;
 }
@@ -74,7 +73,7 @@ navbar a:hover {
   border: .5px solid darkgrey;
   padding: 11px;
   margin: 3px;
-  background-color: rgba(211, 211, 211, .8);
+  background-color: #f2f2f2;
 }
 
 .post-title a {
@@ -113,7 +112,7 @@ input[type=submit] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  width: 92%;
+  width: 90%;
   height: auto;
   transition: 0.3s ease-in-out;
   border-radius: 5px;
@@ -136,7 +135,7 @@ form textarea {
   width: 90%;
   height: 120px;
   font-size: 16px;
-  border: 1px solid whitesmoke;
+  border: 1px solid lightgrey;
   border-radius: 5px;
   overflow: scroll;
 }
@@ -195,8 +194,7 @@ form textarea {
   margin-top: 30px;
   width: 400px;
   border-radius: 5px;
-  border: 1px solid darkgrey;
-  background-color: rgba(211, 211, 211, .8);
+  background-color: #f2f2f2;
   text-align: center;
   padding: 0px 15px 15px 15px;
 }
@@ -240,9 +238,9 @@ form textarea {
 }
 
 .comment-span {
-  border: 1px solid black;
+  border: 1px solid darkgrey;
   padding: 5px;
-  background-color: rgba(211, 211, 211, .8);
+  background-color: #f2f2f2;
   border-radius: 5px;
   margin-right: 3px;
   margin-bottom: 30px;
@@ -298,7 +296,6 @@ nav a:hover {
 }
 
 .content img {
-  margin: 10px;
   float: left;
   width: 250px;
   height: 270px;
@@ -306,6 +303,7 @@ nav a:hover {
   overflow: hidden;
   border-radius: 50%;
   border: 2px teal solid;
+  margin: 10px 10px 5px 10px;
 }
 
 .google-login input[type=submit]{
@@ -342,10 +340,6 @@ nav a:hover {
   margin: 60px;
 }
 
-.about-container img {
-  margin-right: 46px;
-}
-
 .index-container img {
   padding-top: 10px;
 }
@@ -373,11 +367,17 @@ nav a:hover {
 
 #comments {
   margin-top: 20px;
+  padding-top: 20px;
   margin-bottom: 20px;
+  border-top: 1px solid darkgrey;
 }
 
 #commentstext {
   margin-left: 10px;
+}
+
+#post_category_id {
+  width: 90%;
 }
 
 @media(max-width: 820px){

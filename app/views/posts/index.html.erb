@@ -4,8 +4,8 @@
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag 'Search', :name => nil %>
         <i class="fa fa-search" aria-hidden="true"></i>
-        <% end %>
-        <%= button_to 'View by Tags', tags_path, :method => 'get' %>
+    <% end %>
+    <%= button_to 'View by Tags', tags_path, :method => 'get' %>
 </div>
 
   <% @post.each do |p| %>
