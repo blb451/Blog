@@ -24,7 +24,7 @@ a {
 }
 
 navbar {
-  width: 96%;
+  width: 95%;
   display: flex;
   justify-content: space-between;
   font-size: 20px;
@@ -344,10 +344,12 @@ nav a:hover {
 
 .home-container img {
   padding-top: 10px;
+  margin-left: 10px;
 }
 
 .home-container a {
   font-size: 12px;
+  margin-left: 10px;
   color: #ABDCBE;
 }
 
@@ -361,7 +363,7 @@ nav a:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 98%;
+  width: 97%;
   margin-bottom: 20px;
   background-color: lightgrey;
   border-radius: 5px;
@@ -373,7 +375,7 @@ nav a:hover {
   border: 1px solid darkgrey;
   padding: 5px;
   background-color: rgba(211, 211, 211, .7);
-  width: 99%;
+  width: 97%;
   text-align: center;
   color: teal;
 }

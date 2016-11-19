@@ -15,9 +15,3 @@
 //= require chosen-jquery
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function(){
-  $('#form-submit-link').click(function(){
-    $(this).parents('form').eq(0).submit();
-  });
-});
