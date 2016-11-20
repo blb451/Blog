@@ -1,0 +1,37 @@
+#favbutton {
+  display: inline;
+  margin-left: 10px;
+  font-size: 26px;
+}
+
+#favbutton a {
+  color: teal;
+  opacity: .7;
+}
+
+#favbutton a:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
+.star-widget {
+  margin-bottom: 10px;
+}
+
+.star-widget a {
+  color: #7BC6B9;
+}
+
+.show-container {
+  margin-left: 10px;
+}
+
+.show-page input[type=submit] {
+  width: 180px;
+  margin-left: 10px;
+}
+
+.show-page .form-container {
+  padding-top: 30px;
+  margin-left: 30px;
+}

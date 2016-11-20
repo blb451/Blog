@@ -33,11 +33,9 @@
   </div>
 
   <div id = 'comments'>
-    <div class='comment-container'>
-      <% @post.comments.each do |comment| %>
-        <%= render '/comments/comment', { comment: comment } %>
-      <% end %>
-    </div>
+    <% @post.comments.each do |comment| %>
+      <%= render '/comments/comment', { comment: comment } %>
+    <% end %>
   </div>
 
   <%= render '/comments/form' %>

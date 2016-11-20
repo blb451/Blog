@@ -1,0 +1,114 @@
+form label {
+  text-align: left;
+	width: 100%;
+  display: block;
+  margin-left: 10px;
+}
+
+input[type=submit] {
+  background-color: #3DAC9E;
+  border: .5px solid #249283;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 90%;
+  height: auto;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+input[type=submit]:hover {background-color: #249283;}
+
+form input {
+  width: 90%;
+  height: 20px;
+  font-size: 16px;
+  border: 1px solid whitesmoke;
+  margin: 5px 0px 5px 0px;
+  color: rgba(0, 0, 0, .5);
+  border-radius: 5px;
+}
+
+form textarea {
+  width: 90%;
+  height: 120px;
+  font-size: 16px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  overflow: scroll;
+}
+
+.chosen-single {
+  width: 90%px;
+  text-align: left;
+}
+
+#post_tag_ids_chosen {
+  width: 90%;
+  text-align: left;
+}
+
+.form-container {
+  margin: auto;
+  margin-top: 30px;
+  width: 400px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 5px 15px 15px 15px;
+}
+
+.form-container label {
+  margin-left: 18px;
+}
+
+.form-container a {
+  color: teal;
+  transition: 0.3s ease-in-out;
+}
+
+.form-container a:hover {
+  color: #ABDCBE;
+  transition: 0.3s ease-in-out;
+}
+
+.google-login input[type=submit]{
+  background-color: #DF4A32;
+  border-color: #bc3f2b;
+  transition: 0.3s ease-in-out;
+}
+
+.google-login input[type=submit]:hover{
+  background-color: #bc3f2b;
+}
+
+.facebook-login input[type=submit]{
+  background-color: #3B5998;
+  border-color: #2d4472;
+  transition: 0.3s ease-in-out;
+}
+
+.facebook-login input[type=submit]:hover{
+  background-color: #2d4472;
+}
+
+i#form-submit-link {
+  color: teal;
+  opacity: .7;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 3px;
+  margin-right: 30px;
+}
+
+i#form-submit-link:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
+#post_category_id {
+  width: 90%;
+}

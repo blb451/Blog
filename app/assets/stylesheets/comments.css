@@ -1,0 +1,45 @@
+#comments {
+  margin-top: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  border-top: 1px solid darkgrey;
+}
+
+#commentstext {
+  margin-left: 10px;
+}
+
+.comment-span {
+  border: 1px solid darkgrey;
+  padding: 5px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-right: 3px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.comment {
+  margin: 4px;
+}
+
+.comment .fa {
+  color: teal;
+  opacity: .5;
+}
+
+.comment .fa:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
+.comment-container {
+  margin-left: 10px;
+  display: flex;
+  align-content: space-between;
+  flex-flow: column wrap;
+}
+
+.comment-name {
+  color: teal;
+}

@@ -1,14 +1,16 @@
-<div class = "comment" id ="<%= dom_id(comment)%>">
-  <span class='comment-span'>
-    <span class='comment-name'><%= comment.user_full_name %></span>:
-    <%= "#{comment.body}" %>
-    <% if can? :delete, comment %>
-      <%= link_to post_comment_path(@post, comment),
-      method: :delete,
-      remote: true,
-      data: {confirm: 'are you sure?'} do %>
-        <i class="fa fa-trash" aria-hidden="true"></i>
+<div class='comment-container'>
+  <div class = "comment" id ="<%= dom_id(comment)%>">
+    <span class='comment-span'>
+      <span class='comment-name'><%= comment.user_full_name %></span>:
+      <%= "#{comment.body}" %>
+      <% if can? :delete, comment %>
+        <%= link_to post_comment_path(@post, comment),
+        method: :delete,
+        remote: true,
+        data: {confirm: 'are you sure?'} do %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        <% end %>
       <% end %>
-    <% end %>
-  </span>
+    </span>
+  </div>
 </div>

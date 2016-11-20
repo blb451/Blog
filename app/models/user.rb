@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+
   attr_accessor :current_password
   has_many :comments, dependent: :nullify
   has_many :posts, dependent: :nullify
@@ -59,6 +59,10 @@ class User < ApplicationRecord
 
   def signed_in_with_facebook?
     uid.present? && provider == 'facebook'
+  end
+
+  def signed_in_with_google?
+    uid.present? && provider == 'google_oauth2'
   end
 
   private
