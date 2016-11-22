@@ -6,6 +6,6 @@ $(document).on('turbolinks:load', function(){
 });
 
 
-
-jQuery(function($){ $( '.navbar i' ).click(function(){
+$(document).on('turbolinks:load', function(){
+$( '.navbar i' ).click(function(){
   $('.responsive-menu').toggleClass('expand')})})
