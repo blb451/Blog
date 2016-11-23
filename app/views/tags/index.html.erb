@@ -1,7 +1,7 @@
-<h1>All Tags</h1>
-
 <div class='form-container'>
   <% @tags.each do |t| %>
     <%= link_to t.name, tag_path(t) %> (<%= t.posts.size %> Posts) <br />
   <% end %>
 </div>
+
+  <%= paginate @tags %>
