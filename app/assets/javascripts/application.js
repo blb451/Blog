@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
+//= require posts_index
 //= require turbolinks
 //= require_tree .
