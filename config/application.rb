@@ -1,4 +1,3 @@
-config.serve_static_assets = true
 
 require_relative 'boot'
 
@@ -24,6 +23,7 @@ module Blog
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Pacific Time (US & Canada)'
+    config.serve_static_assets = true
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
