@@ -1,9 +1,9 @@
 <h1 id='post-header'><%= @post.title %></h1>
   <div id= 'index-options'>
-    <% if can? :modify, @post %>
     <div id= 'favbutton'>
       <%= render '/favourites/button' %>
     </div>
+    <% if can? :modify, @post %>
       <%= link_to edit_post_path(@post), method: :get do %>
       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
       <% end %>
