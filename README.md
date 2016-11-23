@@ -8,6 +8,6 @@ Although there's still plenty of work to be done (and a lot of reformatting I co
 
 This project is not moderated, and I am not responsible for any content that may appear here beyond the data seeded using the Faker gem. 
 
-Uploaded at: http://www.codecore-blog-project.herokuapp.com
+Uploaded at: http://codecore-blog-project.herokuapp.com
 
 Wednesday, November 22, 2016: I have disabled the facebook sign-in as the api keys I used when making the project are no longer valid. 
