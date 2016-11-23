@@ -1,24 +1,11 @@
-# README
+# CodeCore Blog Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Primary Technologies: Ruby on Rails, PostgreSQL, HTML5, CSS3, jQuery
 
-Things you may want to cover:
+This project was a simple blog app used for implementing and practicing the various skills taught to us throughout the bootcamp. After it's completion, I decided to follow up by implementing a few more features and took it as an opportunity to practice styling using pure CSS without any front-end framework.
 
-* Ruby version
+Although there's still plenty of work to be done (and a lot of reformatting I could do in retrospect) I felt like this was a good place to stop my work on the blog and move on to other work.
 
-* System dependencies
+This project is not moderated, and I am not responsible for any content that may appear here beyond the data seeded using the Faker gem. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Wednesday, November 22, 2016: I have disabled the facebook sign-in as the api keys I used when making the project are no longer valid. 
