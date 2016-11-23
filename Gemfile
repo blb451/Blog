@@ -43,4 +43,5 @@ group :development do
   gem 'faker'
 end
 
+gem 'rails_12factor', group: :production
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
